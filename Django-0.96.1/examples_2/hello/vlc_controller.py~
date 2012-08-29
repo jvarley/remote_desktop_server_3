@@ -1,0 +1,23 @@
+import time
+import vlc
+
+class VLC_Controller:
+    def __init__(self):
+        self.p_instance = vlc.libvlc_new(0,None)
+        self.isFullScreen = False
+        self.p_mi = None
+
+    def launch_player(self):
+        if self.p_mi == None:
+            self.p_mi = self.p_instance.media_player_new()
+            self.p_mi.set_mrl("/home/jvarley/Downloads/PulpFiction.avi")
+            self.p_mi.play()
+            print self.p_mi.get_position()
+
+
+    def toggle_fullscreen(self):
+        self.isFullScreen = not self.isFullScreen
+        vlc.libvlc_set_fullscreen(self.p_mi, self.isFullScreen)
+        
+
+

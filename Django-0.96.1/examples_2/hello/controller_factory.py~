@@ -1,0 +1,6 @@
+class Controller_Factory:
+    def __init__(self):
+        self.vlcController = VLC_Controller()
+        self.volumeController = Volume_Controller()
+        self.mouseController = Mouse_Controller()
+    
